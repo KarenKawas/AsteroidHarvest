@@ -18,9 +18,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private float _thrust;
     private float _turn;
-    
-    [HideInInspector] public CinemachineFreeLook _cinemachineFreeLook;
 
+    private void Start()
+    {
+       _rigidbody = GetComponent<Rigidbody>();
+    }
 
     public void OnLook(InputValue value)
     {
@@ -34,25 +36,22 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _thrust = _moveInput.y;
-        _turn = _moveInput.x;
+        _turn = _moveInput.x; //horizontal
+        _thrust = _moveInput.y; //vertical
+        
     }
 
     private void FixedUpdate()
     {
-        // find thrust force as a Vector3 using the ship's forward
-        Vector3 force = _thrust * _movementAttributes.Acceleration * transform.forward;
-        // apply thrust
-        _rigidbody.AddForce(force);
+        
+        Vector3 movement = new Vector3(_turn, 0.0f, _thrust);
+        _rigidbody.AddForce(movement * _movementAttributes.Acceleration, ForceMode.Impulse);
 
-        // find rotation torque as a Vector3
-        Vector3 torque = _turn * _movementAttributes.TurnSpeed * transform.up;
-        // this is the same as Vector3 torque = new Vector3(0f, _turn * _turnSpeed, 0f);
-        // apply torque
-        _rigidbody.AddTorque(torque);
         
-        
-        
+        _rigidbody.AddRelativeTorque(Vector3.right * _movementAttributes.Torque * -_thrust);
+        _rigidbody.AddRelativeTorque(Vector3.up * _movementAttributes.Torque * _turn);
+
+        _rigidbody.rotation = Quaternion.Euler(0.0f, 0.0f, _rigidbody.velocity.x * -_movementAttributes.Tilt);
         
     }
 

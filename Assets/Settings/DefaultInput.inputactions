@@ -2,7 +2,7 @@
     "name": "DefaultInput",
     "maps": [
         {
-            "name": "Maeve",
+            "name": "Player",
             "id": "d016d086-343c-4a61-ae85-ae4d29328607",
             "actions": [
                 {
@@ -841,7 +841,7 @@
             ]
         },
         {
-            "name": "Milo",
+            "name": "PlayerTwo",
             "id": "67fb935c-4bb8-42a2-bc56-f699dad96454",
             "actions": [
                 {
