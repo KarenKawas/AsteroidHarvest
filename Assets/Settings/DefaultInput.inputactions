@@ -30,12 +30,20 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
+                    "name": "ThrottleStart",
+                    "type": "PassThrough",
                     "id": "184de04d-bbb7-43d8-9b3e-8803e1624a03",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "ThrottleEnd",
+                    "type": "Button",
+                    "id": "265993e9-e5b1-447f-89b9-8f4b636655b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 },
                 {
                     "name": "Dodge",
@@ -438,7 +446,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Jump",
+                    "action": "ThrottleStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -449,7 +457,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Jump",
+                    "action": "ThrottleStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -835,6 +843,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ccc187e-dd73-4cd5-8996-70e21f686067",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ThrottleEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d00590ee-78cc-4889-9d89-352db31415b3",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ThrottleEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
